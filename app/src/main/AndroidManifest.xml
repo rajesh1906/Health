@@ -10,8 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.Activities.Dash_board">
+        <activity android:name=".UI.Activities.HomeScreen"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +23,11 @@
         <activity
             android:name=".UI.Activities.Videos_List"
             android:label="@string/title_activity_videos__list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity
+            android:name=".UI.Activities.HomeScreen"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>-->
     </application>
 
 </manifest>

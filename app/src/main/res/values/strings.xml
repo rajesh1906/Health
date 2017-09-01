@@ -17,7 +17,7 @@
         <item>gym workouts videos english</item>
         <item>women gym workouts videos english</item>
         <item>Hair care tips english</item>
-      <!--  <item>old people workouts</item>-->
+        <!--  <item>old people workouts</item>-->
     </string-array>
     <string-array name="images">
         <item>@drawable/health_tips</item>
@@ -27,4 +27,5 @@
         <item>@drawable/girls_workout</item>
         <item>@drawable/health_tips</item>
     </string-array>
+    <string name="title_activity_home_screen">HomeScreen</string>
 </resources>
