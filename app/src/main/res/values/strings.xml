@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Health Care</string>
+    <string-array name="dashboard">
+        <item>Health Tips</item>
+        <item>Yoga</item>
+        <item>Healthy hair</item>
+        <item>Workout for Men</item>
+        <item>Workout for Women</item>
+        <item>Hair Care Tips</item>
+        <!--<item>Workout for Seniors</item>-->
+    </string-array>
+    <string name="title_activity_videos__list">Videos_List</string>
+    <string-array name="videos_list">
+        <item>best health tips videos in english</item>
+        <item>yoga videos english</item>
+        <item>healthy hair tips videos english</item>
+        <item>gym workouts videos english</item>
+        <item>women gym workouts videos english</item>
+        <item>Hair care tips english</item>
+      <!--  <item>old people workouts</item>-->
+    </string-array>
+    <string-array name="images">
+        <item>@drawable/health_tips</item>
+        <item>@drawable/yoga_logo</item>
+        <item>@drawable/hair</item>
+        <item>@drawable/men_workout</item>
+        <item>@drawable/girls_workout</item>
+        <item>@drawable/health_tips</item>
+    </string-array>
+</resources>

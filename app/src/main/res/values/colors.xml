@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d11900</color>
+    <color name="colorPrimaryDark">#d11900</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="transparent_color">#00000000</color>
+    <color name="red">#FF0000</color>
+    <color name="bulee">#0000ff</color>
+    <color name="green">#00ff00</color>
+    <color name="green_dark">#00ac4e</color>
+    <color name="blue">#1D20DD</color>
+    <color name="black">#000000</color>
+    <color name="gray">#A4A4A4</color>
+    <color name="title_color">#F80909</color>
+    <color name="text_red_color">#D31900</color>
+    <color name="inventory_item_bg">#ffffff</color>
+    <color name="inventory_item_border">#c2c3c8</color>
+    <color name="exp_color">#d1d1d1</color>
+    <color name="auction_color">#f9ddc2</color>
+    <color name="white">#ffffffff</color>
+    <color name="shadow">#AABDBDBD</color>
+    <color name="default_shadow_color">#88757575</color>
+    <color name="rate_text">#424242</color>
+    <color name="filter_subheader">#212121</color>
+    <color name="filter_item">#292929</color>
+    <color name="sort_textcolor">#d9d9d9</color>
+    <color name="pbr_color">#F80909</color>
+    <color name="filter_textcolor">#a8a8a8</color>
+    <color name="cartrade_red">#E51F20</color>
+    <color name="field_color">#aaa</color>
+    <color name="path_primary">#E62F17</color>
+    <color name="scrim">#42000000</color>
+    <color name="cte_color">#CC0000</color>
+    <color name="cte_color_transparent">#90CC0000</color>
+    <color name="cte_home_list_color">#D8D8D8</color>
+    <color name="cte_ripple_color">#CC0000</color>
+    <color name="urlblue">#0174DF</color>
+    <color name="light_gray_text">#B8B8B8</color>
+    <color name="value_color">#1f1616</color>
+    <color name="dark_grey">#606060</color>
+    <color name="green_grey">#dadbc6</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="dark_green_image">#44b985</color>
+
+    <!--Chatting Colors-->
+    <color name="lemon_yellow">#F1EFB1</color>
+    <color name="lemon_lime">#CDF49A</color>
+
+    <!--hint color-->
+    <color name="hint_color">#808080</color>
+    <color name="shade_white">#f9f9f9</color>
+</resources>
