@@ -7,6 +7,7 @@
     tools:context="com.rajeshk.healthdiet.UI.Activities.HomeScreen">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home_screen" />
 
+    <include layout="@layout/content_home_screen" />
 
 </android.support.design.widget.CoordinatorLayout>
