@@ -40,6 +40,7 @@
     <color name="light_gray_text">#B8B8B8</color>
     <color name="value_color">#1f1616</color>
     <color name="dark_grey">#606060</color>
+
     <color name="green_grey">#dadbc6</color>
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="dark_green_image">#44b985</color>

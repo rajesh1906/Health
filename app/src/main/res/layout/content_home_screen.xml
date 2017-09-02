@@ -10,7 +10,8 @@
     >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,56 +19,67 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="230dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
 
     <android.support.v4.view.ViewPager
         android:id="@+id/reviewpager"
         android:layout_marginTop="2dp"
-        android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
        />
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@color/black"
+            android:alpha=".05"
+           android:layout_alignParentBottom="true"/>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
     <LinearLayout
         android:id="@+id/ll_dots"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
+
         android:gravity="center"
         android:orientation="horizontal"/>
+</FrameLayout>
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="item 1"
-        android:textSize="15dp"
-        android:textColor="@color/red"
+        android:text="@string/food_nd_diet"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/dark_grey"
         android:layout_marginLeft="15dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/scroll_1"
         android:layout_width="fill_parent"
-        android:layout_marginTop="5dp"
-        android:layout_height="150dp"/>
+        android:layout_height="170dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="item 2"
-        android:textSize="15dp"
-        android:textColor="@color/red"
+        android:text="@string/fitness"
+        android:textSize="18dp"
+        android:textColor="@color/dark_grey"
         android:layout_marginLeft="15dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/scroll_2"
         android:layout_width="fill_parent"
-        android:layout_marginTop="5dp"
-        android:layout_height="150dp"/>
+        android:layout_height="170dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="item 3"
         android:textSize="15dp"
+        android:visibility="gone"
         android:textColor="@color/red"
         android:layout_marginLeft="15dp"/>
 
@@ -75,6 +87,7 @@
         android:id="@+id/scroll_3"
         android:layout_width="fill_parent"
         android:layout_marginTop="5dp"
+        android:visibility="gone"
         android:layout_height="150dp"/>
     </LinearLayout>
     </ScrollView>

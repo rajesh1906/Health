@@ -28,4 +28,33 @@
         <item>@drawable/health_tips</item>
     </string-array>
     <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="sleep">Sleep</string>
+    <string name="hair">Hair</string>
+    <string name="love_life">Love life</string>
+    <string name="family_frnds">Family &amp; Friends</string>
+    <string name="emotional_health">Emotional Health</string>
+    <string name="mental_health">Mental Health</string>
+    <string name="social_health">Social Health</string>
+    <string name="environmental_health">Environmental Health</string>
+    <string name="spritual_health">Spritual Health</string>
+    <string name="food_nd_diet">Food &amp; Diet</string>
+    <string name="fitness">Fitness</string>
+
+
+    <string-array name="food_diet">
+        <item>Vegetarian</item>
+        <item>Non-vegetarian</item>
+        <item>Weight gain</item>
+        <item>Musical building</item>
+        <item>Weight loss</item>
+    </string-array>
+
+    <string-array name="excerise">
+        <item>Fitness</item>
+        <item>Gym</item>
+        <item>Cardio</item>
+        <item>Yoga</item>
+    </string-array>
+
+
 </resources>

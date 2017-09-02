@@ -24,29 +24,30 @@ import java.util.ArrayList;
 public class Horizontal_adapter extends RecyclerView.Adapter<Horizontal_adapter.ViewHolder> {
 
     Context context;
-    final Integer[] Imageid;
+    final String[] items;
     private LayoutInflater inflater;
     View itemView;
-    Integer[] images = Constants.getInstance().getImages();
+    Integer[] images = Constants.getInstance().getDashBordImages();
 
-    public Horizontal_adapter(Context context,Integer[]  IMAGES) {
+
+    public Horizontal_adapter(Context context,String []  items) {
         this.context = context;
-        this.Imageid=IMAGES;
+        this.items=items;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.category_item, viewGroup, false);
+                .inflate(R.layout.half_two_item, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder,final int position) {
-        holder.gridview_image.setBackgroundResource(images[position]);
-
+//        holder.gridview_image.setBackgroundResource(images[position]);
+            holder.gridview_text.setText(items[position]);
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +71,7 @@ public class Horizontal_adapter extends RecyclerView.Adapter<Horizontal_adapter.
     }
     @Override
     public int getItemCount() {
-        return Imageid.length;
+        return items.length;
     }
 
 

@@ -22,7 +22,7 @@ public class Dashboard_adapter extends  RecyclerView.Adapter<Dashboard_adapter.M
     private final String[] string;
     private final Integer[] Imageid;
     View itemView;
-    Integer[] images = Constants.getInstance().getImages();
+    Integer[] images = Constants.getInstance().getDashBordImages();
 
     public Dashboard_adapter(Context c, String[] string, Integer[] Imageid) {
         mContext = c;

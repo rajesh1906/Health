@@ -1,5 +1,6 @@
 package com.rajeshk.healthdiet.UI.Activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,11 +13,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.rajeshk.healthdiet.Model.Root;
+import com.rajeshk.healthdiet.Presenters.Call_Backs.Fetch_Response;
+import com.rajeshk.healthdiet.Presenters.Helper.Constants;
 import com.rajeshk.healthdiet.R;
 import com.rajeshk.healthdiet.UI.Adapters.Horizontal_adapter;
 import com.rajeshk.healthdiet.UI.Adapters.SlidingImage_Adapter;
@@ -27,7 +33,7 @@ import java.util.TimerTask;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class HomeScreen extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     @Bind(R.id.ll_dots)
     LinearLayout ll_dots;
     private TextView[] dots;
@@ -55,10 +61,9 @@ public class HomeScreen extends AppCompatActivity {
         scroll_1.setLayoutManager(mLayoutManager);
         scroll_2.setLayoutManager(mLayoutManager1);
         scroll_3.setLayoutManager(mLayoutManager2);
-        Horizontal_adapter horizontal_adapter = new Horizontal_adapter(HomeScreen.this,IMAGES);
-        scroll_1.setAdapter(horizontal_adapter);
-        scroll_2.setAdapter(horizontal_adapter);
-        scroll_3.setAdapter(horizontal_adapter);
+        scroll_1.setAdapter(new Horizontal_adapter(HomeScreen.this, new Constants(HomeScreen.this).getFitndDiet_names()));
+        scroll_2.setAdapter(new Horizontal_adapter(HomeScreen.this,new Constants(HomeScreen.this).getExcerise_names()));
+//        scroll_3.setAdapter(new Horizontal_adapter(HomeScreen.this,IMAGES));
         init();
         addBottomDots(0);
 
@@ -123,5 +128,18 @@ public class HomeScreen extends AppCompatActivity {
 
         if (dots.length > 0)
             dots[currentPage].setTextColor(Color.parseColor("#FF0000"));
+    }
+
+    @Override
+    public void getResponse(Root root, String key) {
+        Log.e("root is ","<><><"+root);
+        if(null!=root){
+            Gson gson = new Gson();
+            Intent intent = new Intent(HomeScreen.this,Videos_List.class);
+            intent.putExtra("pojo",gson.toJson(root));
+            String[] videos = getResources().getStringArray(R.array.videos_list);
+            intent.putExtra("For_search",key);
+            startActivity(intent);
+        }
     }
 }
