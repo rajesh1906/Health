@@ -56,6 +56,10 @@ public class Constants {
         return context.getResources().getStringArray(R.array.excerise);
     }
 
+    public Integer[] getViewPagerImages(){
+        return new Integer[]{R.drawable.hair, R.drawable.health_tips, R.drawable.men_workout, R.drawable.yoga_logo};
+    }
+
 
 
 }

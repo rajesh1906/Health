@@ -24,6 +24,7 @@
             android:name=".UI.Activities.Videos_List"
             android:label="@string/title_activity_videos__list"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UI.Activities.BaseActivity"/>
         <!--<activity
             android:name=".UI.Activities.HomeScreen"
             android:label="@string/title_activity_home_screen"

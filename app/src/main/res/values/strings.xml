@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Health Care</string>
+    <string name="app_name">Health</string>
     <string-array name="dashboard">
         <item>Health Tips</item>
         <item>Yoga</item>
@@ -55,6 +55,7 @@
         <item>Cardio</item>
         <item>Yoga</item>
     </string-array>
-
+    <string name="open_drawer">open drawer</string>
+    <string name="close_drawer">close drawer</string>
 
 </resources>

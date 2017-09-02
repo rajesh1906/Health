@@ -27,6 +27,7 @@ import com.rajeshk.healthdiet.R;
 import com.rajeshk.healthdiet.UI.Adapters.Horizontal_adapter;
 import com.rajeshk.healthdiet.UI.Adapters.SlidingImage_Adapter;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,7 +41,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     int page_position = 0;
     @Bind(R.id.reviewpager)
     ViewPager myPager;
-    private static final Integer[] IMAGES = {R.drawable.hair, R.drawable.health_tips, R.drawable.men_workout, R.drawable.yoga_logo};
+    //private static final Integer[] IMAGES = {R.drawable.hair, R.drawable.health_tips, R.drawable.men_workout, R.drawable.yoga_logo};
 
     @Bind(R.id.scroll_1)
     RecyclerView scroll_1;
@@ -49,12 +50,15 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     @Bind(R.id.scroll_3)
     RecyclerView scroll_3;
     SlidingImage_Adapter adapter;
+    public static String pagetoken="";
+    ArrayList<String > arrayList_pagetokens = new ArrayList<>();
+    String temp_token="initial";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         ButterKnife.bind(this);
-        adapter  = new SlidingImage_Adapter(HomeScreen.this,IMAGES);
+        adapter  = new SlidingImage_Adapter(HomeScreen.this,Constants.getInstance().getViewPagerImages());
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager mLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -71,7 +75,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
 
         final Runnable update = new Runnable() {
             public void run() {
-                if (page_position == IMAGES.length) {
+                if (page_position == Constants.getInstance().getViewPagerImages().length) {
                     page_position = 0;
                 } else {
                     page_position = page_position + 1;
@@ -116,7 +120,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
         });
     }
     private void addBottomDots(int currentPage) {
-        dots = new TextView[IMAGES.length];
+        dots = new TextView[Constants.getInstance().getViewPagerImages().length];
         ll_dots.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
@@ -134,6 +138,11 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     public void getResponse(Root root, String key) {
         Log.e("root is ","<><><"+root);
         if(null!=root){
+//            if(temp_token!=pagetoken){
+//            pagetoken  = root.getNextPageToken();
+//                pagetoken = temp_token;
+//            }
+
             Gson gson = new Gson();
             Intent intent = new Intent(HomeScreen.this,Videos_List.class);
             intent.putExtra("pojo",gson.toJson(root));

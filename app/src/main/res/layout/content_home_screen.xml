@@ -36,7 +36,7 @@
             android:background="@color/black"
             android:alpha=".05"
            android:layout_alignParentBottom="true"/>
-<FrameLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true">
@@ -47,7 +47,7 @@
 
         android:gravity="center"
         android:orientation="horizontal"/>
-</FrameLayout>
+</RelativeLayout>
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
