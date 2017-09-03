@@ -55,6 +55,7 @@ public class Retrofit_Client {
                 dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
                 dialog.setContentView (R.layout.custom_progress);
                 dialog.getWindow ().setBackgroundDrawableResource (android.R.color.transparent);
+        dialog.setCancelable(false);
                 dialog.show ();
         Api api = getClient().create(Api.class);
         Constants.getInstance().setSearchKey(key);

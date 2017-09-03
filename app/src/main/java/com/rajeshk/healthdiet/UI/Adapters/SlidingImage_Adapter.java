@@ -3,11 +3,13 @@ package com.rajeshk.healthdiet.UI.Adapters;
 import android.content.Context;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.rajeshk.healthdiet.Presenters.Api_Client.Retrofit_Client;
 import com.rajeshk.healthdiet.R;
 
 /**
@@ -39,7 +41,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup view, int position) {
+    public Object instantiateItem(ViewGroup view, final int position) {
         View imageLayout = inflater.inflate(R.layout.home_page_item, view, false);
 
         assert imageLayout != null;
@@ -48,7 +50,13 @@ public class SlidingImage_Adapter extends PagerAdapter {
 
 
         imageView.setImageResource(IMAGES[position]);
-
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("position is ","<><>"+position);
+                Retrofit_Client.getInstance().getResponse(context.getResources().getStringArray(R.array.viewpager_items)[position],50,context);
+            }
+        });
         view.addView(imageLayout, 0);
 
         return imageLayout;

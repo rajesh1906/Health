@@ -41,7 +41,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     int page_position = 0;
     @Bind(R.id.reviewpager)
     ViewPager myPager;
-    //private static final Integer[] IMAGES = {R.drawable.hair, R.drawable.health_tips, R.drawable.men_workout, R.drawable.yoga_logo};
+    private static final Integer[] IMAGES = {R.drawable.sleep, R.drawable.yoga, R.drawable.hair, R.drawable.love_life};
 
     @Bind(R.id.scroll_1)
     RecyclerView scroll_1;
@@ -53,12 +53,14 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
     public static String pagetoken="";
     ArrayList<String > arrayList_pagetokens = new ArrayList<>();
     String temp_token="initial";
+    int tab_position=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         ButterKnife.bind(this);
-        adapter  = new SlidingImage_Adapter(HomeScreen.this,Constants.getInstance().getViewPagerImages());
+//        adapter  = new SlidingImage_Adapter(HomeScreen.this,Constants.getInstance().getViewPagerImages());
+        adapter  = new SlidingImage_Adapter(HomeScreen.this,IMAGES);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager mLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager mLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -110,6 +112,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
 
             @Override
             public void onPageSelected(int position) {
+                tab_position = position;
                 addBottomDots(position);
             }
 
@@ -120,7 +123,7 @@ public class HomeScreen extends AppCompatActivity  implements Fetch_Response {
         });
     }
     private void addBottomDots(int currentPage) {
-        dots = new TextView[Constants.getInstance().getViewPagerImages().length];
+        dots = new TextView[IMAGES.length];
         ll_dots.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
