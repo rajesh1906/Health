@@ -60,6 +60,7 @@ public class Retrofit_Client {
         Api api = getClient().create(Api.class);
         Constants.getInstance().setSearchKey(key);
         Config.searchkey = key;
+
         Call<Root> serverCall = api.getData(key,Config.YOUTUBE_API_KEY,50, HomeScreen.pagetoken);
         serverCall.enqueue(new Callback<Root>() {
             @Override
