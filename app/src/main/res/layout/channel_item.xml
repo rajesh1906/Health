@@ -35,6 +35,7 @@
                 android:layout_above="@+id/gridview_text"
                 />
             <ImageView
+                android:id="@+id/img_play"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
