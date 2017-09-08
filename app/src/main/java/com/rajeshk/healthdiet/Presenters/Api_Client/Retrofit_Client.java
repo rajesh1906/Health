@@ -55,10 +55,12 @@ public class Retrofit_Client {
                 dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
                 dialog.setContentView (R.layout.custom_progress);
                 dialog.getWindow ().setBackgroundDrawableResource (android.R.color.transparent);
+        dialog.setCancelable(false);
                 dialog.show ();
         Api api = getClient().create(Api.class);
         Constants.getInstance().setSearchKey(key);
         Config.searchkey = key;
+
         Call<Root> serverCall = api.getData(key,Config.YOUTUBE_API_KEY,50, HomeScreen.pagetoken);
         serverCall.enqueue(new Callback<Root>() {
             @Override

@@ -9,6 +9,12 @@
         <item>Hair Care Tips</item>
         <!--<item>Workout for Seniors</item>-->
     </string-array>
+    <string-array name="viewpager_items">
+        <item>Sleeping tips english</item>
+        <item>Yoga</item>
+        <item>Healthy hair english</item>
+        <item>healthy loving tips</item>
+    </string-array>
     <string name="title_activity_videos__list">Videos_List</string>
     <string-array name="videos_list">
         <item>best health tips videos in english</item>
