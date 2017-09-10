@@ -71,7 +71,6 @@ public class BMICalculator extends AppCompatActivity
                     }else{
                         return true;
                     }
-
                 }
             }
         }
