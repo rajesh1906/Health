@@ -27,12 +27,13 @@ public class Horizontal_adapter extends RecyclerView.Adapter<Horizontal_adapter.
     final String[] items;
     private LayoutInflater inflater;
     View itemView;
-    Integer[] images = Constants.getInstance().getDashBordImages();
+    Integer[] images ;
 
 
-    public Horizontal_adapter(Context context,String []  items) {
+    public Horizontal_adapter(Context context,String []  items,Integer[] images) {
         this.context = context;
         this.items=items;
+        this.images = images;
         inflater = LayoutInflater.from(context);
     }
 
@@ -46,7 +47,7 @@ public class Horizontal_adapter extends RecyclerView.Adapter<Horizontal_adapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder,final int position) {
-//        holder.gridview_image.setBackgroundResource(images[position]);
+        holder.gridview_image.setBackgroundResource(images[position]);
             holder.gridview_text.setText(items[position]);
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

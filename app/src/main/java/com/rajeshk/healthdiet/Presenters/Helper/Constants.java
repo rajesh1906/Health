@@ -60,6 +60,13 @@ public class Constants {
         return new Integer[]{R.drawable.hair, R.drawable.health_tips, R.drawable.men_workout, R.drawable.yoga_logo};
     }
 
+    public Integer[] getfoodImages(){
+        return new Integer[]{R.drawable.veggi,R.drawable.non_veggi,R.drawable.weightgain,R.drawable.weightloss};
+    }
 
+
+    public Integer[] getfitnessImages(){
+        return new Integer[]{R.drawable.fitness,R.drawable.gym,R.drawable.cardio};
+    }
 
 }
