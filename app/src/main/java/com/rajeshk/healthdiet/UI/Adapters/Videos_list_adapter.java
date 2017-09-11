@@ -2,6 +2,7 @@ package com.rajeshk.healthdiet.UI.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,7 +34,7 @@ public class Videos_list_adapter extends  RecyclerView.Adapter<Videos_list_adapt
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView txt_title,txt_description;
+        public TextView txt_title,txt_description,txt_timer;
         ImageView gridview_image,img_play;
 
 
@@ -42,6 +43,7 @@ public class Videos_list_adapter extends  RecyclerView.Adapter<Videos_list_adapt
             super(view);
             txt_title = (TextView) view.findViewById(R.id.txt_title);
             txt_description = (TextView) view.findViewById(R.id.txt_description);
+            txt_timer = (TextView) view.findViewById(R.id.txt_timer);
             gridview_image = (ImageView)view.findViewById(R.id.gridview_image);
             img_play = (ImageView)view.findViewById(R.id.img_play);
         }
@@ -62,6 +64,10 @@ public class Videos_list_adapter extends  RecyclerView.Adapter<Videos_list_adapt
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.txt_title.setText(root.getItems().get(position).getSnippet().getTitle());
         holder.txt_description.setText(root.getItems().get(position).getSnippet().getDescription());
+//        holder.txt_timer.setText(root.);
+
+
+
         Glide.with(mContext).load(root.getItems().get(position).getSnippet().getThumbnails().getHigh().getUrl())
                 .thumbnail(0.5f)
                 .crossFade()
@@ -77,10 +83,28 @@ public class Videos_list_adapter extends  RecyclerView.Adapter<Videos_list_adapt
                 mContext.startActivity(intent);
             }
         });
+        try{
+            Log.e("video duraion is ","<<><"+videoDuration(root.getItems().get(position).getId().getVideoId()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public int getItemCount() {
         return root.getItems().size();
+    }
+
+
+    private String  videoDuration(String source){
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        retriever.setDataSource("https://www.youtube.com/watch?v="+source);
+        String time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
+        long timeInmillisec = Long.parseLong( time );
+        long duration = timeInmillisec / 1000;
+        long hours = duration / 3600;
+        long minutes = (duration - hours * 3600) / 60;
+        long seconds = duration - (hours * 3600 + minutes * 60);
+        return String.valueOf(hours)+":"+String.valueOf(minutes)+":"+String.valueOf(seconds);
     }
 }

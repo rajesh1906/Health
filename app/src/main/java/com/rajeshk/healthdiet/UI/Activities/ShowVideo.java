@@ -1,5 +1,6 @@
 package com.rajeshk.healthdiet.UI.Activities;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Window;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -27,9 +29,8 @@ import retrofit2.Response;
 public class ShowVideo extends AppCompatActivity
 {
     VideoView videoView;
-    ProgressDialog  pDialog;
-    String videoUrl;
     private   String YOUTUBE_ID = "";
+    Dialog dialog;
 
     private final YouTubeExtractor mExtractor = YouTubeExtractor.create();
 
@@ -43,15 +44,12 @@ public class ShowVideo extends AppCompatActivity
         if(null!=bundle)
         YOUTUBE_ID = bundle.getStringExtra("video_id");
         mExtractor.extract(YOUTUBE_ID).enqueue(mExtractionCallback);
-        pDialog = new ProgressDialog(ShowVideo.this);
-        // Set progressbar title
-        pDialog.setTitle("Please wait");
-        // Set progressbar message
-        pDialog.setMessage("Buffering...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        // Show progressbar
-        pDialog.show();
+        dialog = new Dialog (ShowVideo.this);
+        dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
+        dialog.setContentView (R.layout.custom_progress);
+        dialog.getWindow ().setBackgroundDrawableResource (android.R.color.transparent);
+        dialog.setCancelable(false);
+        dialog.show ();
     }
 
 
@@ -67,15 +65,10 @@ public class ShowVideo extends AppCompatActivity
             onError(t);
         }
     };
-
-
-
     private void onError(Throwable t) {
         t.printStackTrace();
         Toast.makeText(ShowVideo.this, "It failed to extract. So sad", Toast.LENGTH_SHORT).show();
     }
-
-
     private void bindVideoResult(YouTubeExtractionResult result) {
 
 //        Here you can get download url link
@@ -93,12 +86,11 @@ public class ShowVideo extends AppCompatActivity
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-
         videoView.requestFocus();
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             // Close the progress bar and play the video
             public void onPrepared(MediaPlayer mp) {
-                pDialog.dismiss();
+                dialog.dismiss();
                 videoView.start();
             }
         });
