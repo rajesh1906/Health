@@ -13,6 +13,7 @@
 
         android:theme="@style/AppTheme">
         <activity android:name=".UI.Activities.HomeScreen"
+            android:screenOrientation="portrait"
             >
 
             <intent-filter>
@@ -24,13 +25,15 @@
         <activity
             android:name=".UI.Activities.Videos_List"
             android:label="@string/title_activity_videos__list"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UI.Activities.BaseActivity"/>
         <activity android:name=".UI.Activities.ShowVideo"
             android:screenOrientation="landscape">
 
             </activity>
-
+        <activity android:name=".UI.Activities.BMICalculator"
+            android:screenOrientation="portrait"/>
         <!--<activity
             android:name=".UI.Activities.HomeScreen"
             android:label="@string/title_activity_home_screen"
